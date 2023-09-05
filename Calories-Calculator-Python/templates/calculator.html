@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calories Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Calories Calculator</h1>
+        <form method="POST">
+            <label for="gender">Gender:</label>
+            <select name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" name="weight" required>
+
+            <label for="height">Height (cm):</label>
+            <input type="number" name="height" required>
+
+            <label for="age">Age (years):</label>
+            <input type="number" name="age" required>
+
+            <label for="activity_level">Activity Level:</label>
+            <select name="activity_level">
+                <option value="sedentary">Sedentary (little to no exercise)</option>
+                <option value="lightly_active">Lightly Active (light exercise/sports 1-3 days/week)</option>
+                <option value="moderately_active">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
+                <option value="very_active">Very Active (hard exercise every day or 2x/day)</option>
+            </select>
+
+            <label for="goal">Weight Goal:</label>
+            <select name="goal">
+                <option value="maintain">Maintain Weight</option>
+                <option value="lose">Lose Weight</option>
+                <option value="gain">Gain Weight</option>
+            </select>
+
+            <label for="num_meals">Number of Meals:</label>
+            <input type="number" name="num_meals" required>
+
+            <!-- Meal input fields will be generated dynamically based on the number of meals -->
+            <div id="meal-fields">
+                <!-- JavaScript will add meal input fields here -->
+            </div>
+
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to generate meal input fields dynamically
+        const numMealsInput = document.querySelector("input[name='num_meals']");
+        const mealFieldsContainer = document.getElementById("meal-fields");
+
+        numMealsInput.addEventListener("input", () => {
+            const numMeals = numMealsInput.value;
+            mealFieldsContainer.innerHTML = ""; // Clear existing fields
+
+            for (let i = 0; i < numMeals; i++) {
+                const mealNumber = i + 1;
+                const mealLabel = document.createElement("label");
+                mealLabel.textContent = `Meal ${mealNumber} (grams):`;
+
+                const mealProteinInput = document.createElement("input");
+                mealProteinInput.type = "number";
+                mealProteinInput.name = `meal_protein_${i}`;
+                mealProteinInput.placeholder = "Protein";
+                mealProteinInput.required = true;
+
+                const mealCarbsInput = document.createElement("input");
+                mealCarbsInput.type = "number";
+                mealCarbsInput.name = `meal_carbs_${i}`;
+                mealCarbsInput.placeholder = "Carbohydrates";
+                mealCarbsInput.required = true;
+
+                const mealFatsInput = document.createElement("input");
+                mealFatsInput.type = "number";
+                mealFatsInput.name = `meal_fats_${i}`;
+                mealFatsInput.placeholder = "Fats";
+                mealFatsInput.required = true;
+
+                mealFieldsContainer.appendChild(mealLabel);
+                mealFieldsContainer.appendChild(mealProteinInput);
+                mealFieldsContainer.appendChild(mealCarbsInput);
+                mealFieldsContainer.appendChild(mealFatsInput);
+            }
+        });
+    </script>
+</body>
+</html>

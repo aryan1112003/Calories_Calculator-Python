@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calories Calculator - Result</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container result">
+        <h1>Calories Calculator - Result</h1>
+        <div class="diet-suggestion">
+            <h2>Dietary Suggestions:</h2>
+            {% if result.calories %}
+                <p>Your estimated daily calorie requirement: {{ result.calories }} calories</p>
+                <p>Protein Intake: {{ result.protein }} grams</p>
+                <p>Carbohydrates Intake: {{ result.carbohydrates }} grams</p>
+                <p>Fats Intake: {{ result.fats }} grams</p>
+            {% else %}
+                <p>Unable to calculate dietary suggestions. Please check your inputs.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
