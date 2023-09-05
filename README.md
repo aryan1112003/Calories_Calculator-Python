@@ -46,13 +46,13 @@ Before you begin, ensure you have met the following requirements:
 1. **Clone the Repository:** To get started, clone this repository to your local machine using Git:
 
    ```bash
-   git clone https://github.com/yourusername/Calories-Calculator.git
+(https://github.com/aryan1112003/Calories_Calculator-Python/tree/main)
    ```
 
 2. **Navigate to the Project Directory:** Move into the project's directory:
 
    ```bash
-   cd Calories-Calculator
+   cd Calories_Calculator-Python
    ```
 
 3. **Install Dependencies:** Install any necessary project dependencies:
