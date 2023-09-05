@@ -2,7 +2,7 @@
 ```markdown
 # Calories Calculator - Your Health Companion
 
-![GitHub stars](https://img.shields.io/github/stars/yourusername/Calories-Calculator?style=social) ![GitHub forks](https://img.shields.io/github/forks/yourusername/Calories-Calculator?style=social)
+![GitHub stars](https://github.com/aryan1112003/Calories_Calculator-Python/tree/main)
 
 ## Welcome to Calories Calculator
 
